@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var Recording = require("../models/recording");
 
-router.get('/status', function(req, res){
+router.get('/lab/status', function(req, res){
 
     Recording.find({zip: req.body.zip}, {airQuality: req.body.airQuality}, function(err, docs){
         if (zip == ""){
@@ -26,7 +26,7 @@ router.get('/status', function(req, res){
     })
 });
 
-router.post('/register', function(req,res){
+router.post('/lab/register', function(req,res){
     const newRecording = new Recording({
         zip: req.body.zip,
         airQuality: req.body.airQuality
